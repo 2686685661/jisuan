@@ -4,7 +4,7 @@ $(document).ready(function(){
         let wenhuaNUmber = trim($("#exampleInputEmail1").val());
         let zhuanyeNumber = trim($("#exampleInputPassword1").val());
         if(wenhuaNUmber == '' || zhuanyeNumber == '') {
-            alert("请填写文化课成绩和专业统考成绩！");
+            jingGao("请填写文化课成绩和专业统考成绩！");
             return;
         }
 
@@ -28,8 +28,19 @@ $(document).ready(function(){
 
     let insert = (val) => {
         $("#zonghe").empty();
-        let p = '<p class="text-primary">综合分数：' + val + '</p>';
+        let p = '<p class="text-primary">综合分计算：' + val + '</p>';
         $("#zonghe").append(p);
+    }
+
+    let jingGao = (str) => {
+        $("#jinggao").css("display","none");
+        let jinggao = '<div id="jinggao" class="alert alert-warning alert-dismissible" role="alert">'
+        +'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
+        +'<strong>Warning!</strong>'
+        +str+'</div>';
+        $(".container").prepend(jinggao);
+        
+
     }
 });
 
